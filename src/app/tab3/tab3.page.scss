@@ -1,0 +1,33 @@
+.titulo {
+    color: var(--ion-color-primary);
+    font-weight: bold;
+    text-align: center;
+}
+
+p#descripcion {
+    text-align: justify;
+}
+
+.pp{
+    margin-top: 30px;
+    text-align: center;
+}
+.pf{
+    margin-top: 100px;
+    text-align: center;
+}
+.imgc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.imgp {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
