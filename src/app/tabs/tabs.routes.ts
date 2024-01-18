@@ -7,6 +7,14 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'login',
+        loadComponent: () => import('../login/login.page').then( m => m.LoginPage)
+      },
+      {
+        path: 'registro',
+        loadComponent: () => import('../registro/registro.page').then( m => m.RegistroPage)
+      },
+      {
         path: 'tab1',
         loadComponent: () =>
           import('../tab1/tab1.page').then((m) => m.Tab1Page),
@@ -30,7 +38,8 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/login',
     pathMatch: 'full',
   },
+
 ];

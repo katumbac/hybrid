@@ -14,9 +14,38 @@ ion-col {
 ion-searchbar{
     padding: 5px;
 }
-ion-button {
-    padding-top: 20px;
-    margin: 10px;
+ion-button.all {
+    --background: #EED500;
+    --background-hover: #a9e09c;
+    --background-activated: #3700ff;
+    --background-focused: #88f4be;
+  
+    --color: white;
+  
+    --border-radius: 60px;
+
+  
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+   
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    --margin: auto;
+}
+
+ion-button.cat {
+    --background: #FFFFFF;
+    --background-hover: #9ce0be;
+    --background-activated: #88f4be;
+    --background-focused: #88f4be;
+  
+    --color: black;
+  
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+   
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+
+    --margin: auto;
 }
 
 .content-info {
