@@ -1,3 +1,16 @@
+.headt {
+    height: 60px;
+}
+
+.omenu {
+    flex-basis: 24%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    margin: 15px;
+}
+
 ion-grid {
     --ion-grid-padding: 20px;
 }
@@ -6,10 +19,6 @@ ion-img {
     object-fit: cover;
 }
 
-ion-button {
-    padding-top: 20px;
-    margin: 10px;
-}
 
 ion-button.comp {
     --background: #EED500;
