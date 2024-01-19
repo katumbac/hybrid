@@ -1,15 +1,107 @@
-ion-button.cc {
+.loginheader {
+    height: 20%;
+    width: 100%;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+
+    img{
+        width: 151px;
+        height: 146px;
+        margin:auto;
+    }
+
+}
+
+.regicontent {
+    height: 79%;
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        margin-top: 1px;
+        margin-bottom: 0px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 37px;
+        font-weight: 500;
+        color: #003547;
+    }
+}
+
+.regindatos {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+ion-input.custom {
+    --background: white;
+    --color: #003547;
+    --placeholder-color: #ddd;
+    --placeholder-opacity: 1;
+
+    --padding-bottom: 5px;
+    --padding-end: 5px;
+    --padding-start: 5px;
+    --padding-top: 5px;
+    
+}
+
+ion-item {
+    padding: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+ion-button {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+ion-button.btnyacrear {
+    color: #003547;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+ion-button.btning {
     --background: #EED500;
     --background-hover: #9ce0be;
     --background-activated: #88f4be;
     --background-focused: #88f4be;
-  
-    --color: white;
-  
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-   
-    --padding-top: 10px;
-    --padding-bottom: 10px;
 
-    margin: auto;
+    --color: white;
+
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.regifooter{
+    height: 40px;
+    width: 100%;
+    background-color: #003547;
+    border-radius: 40px 40px 0px 0px;
+
 }

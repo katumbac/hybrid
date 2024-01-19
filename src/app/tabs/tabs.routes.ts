@@ -11,10 +11,6 @@ export const routes: Routes = [
         loadComponent: () => import('../login/login.page').then( m => m.LoginPage)
       },
       {
-        path: 'registro',
-        loadComponent: () => import('../registro/registro.page').then( m => m.RegistroPage)
-      },
-      {
         path: 'tab1',
         loadComponent: () =>
           import('../tab1/tab1.page').then((m) => m.Tab1Page),
@@ -38,8 +34,12 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/login',
-    pathMatch: 'full',
+        loadComponent: () => import('../login/login.page').then( m => m.LoginPage)
   },
+  {
+    path: 'registro',
+    loadComponent: () => import('../registro/registro.page').then( m => m.RegistroPage)
+  },
+
 
 ];

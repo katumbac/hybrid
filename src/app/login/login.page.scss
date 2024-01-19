@@ -1,15 +1,104 @@
-ion-button.loin {
+.loginheader {
+    height: 30%;
+    width: 100%;
+    background-color: #ffffff;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+
+    img{
+        width: 191px;
+        height: 186px;
+        margin:auto;
+    }
+}
+
+.headercontent{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.logincontent {
+    height: 70%;
+    width: 100%;
+    background-color: #003547;
+    border-radius: 105px 105px 0px 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 37px;
+        font-weight: 500;
+        color: white;
+    }
+}
+
+.logindatos {
+    margin-bottom: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+ion-input.custom {
+    --background: white;
+    --color: #003547;
+    --placeholder-color: #ddd;
+    --placeholder-opacity: 1;
+
+    --padding-bottom: 5px;
+    --padding-end: 5px;
+    --padding-start: 5px;
+    --padding-top: 5px;
+}
+
+ion-item {
+    padding: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+
+}
+
+ion-button {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+ion-button.btncrear {
+    color: white;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    font-size: 15px;
+}
+
+ion-button.btning {
     --background: #EED500;
     --background-hover: #9ce0be;
     --background-activated: #88f4be;
     --background-focused: #88f4be;
-  
-    --color: white;
-  
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-   
-    --padding-top: 10px;
-    --padding-bottom: 10px;
 
-    margin: auto;
+    --color: white;
+
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+
+    font-size: 18px;
+    margin-top: 13%;
 }

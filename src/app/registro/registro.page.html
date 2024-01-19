@@ -1,35 +1,47 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Crear Cuenta</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Crear Cuenta</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form>
-        <ion-item>
-          <ion-label >Nombre</ion-label>
-          <ion-input ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label >Contraseña</ion-label>
-          <ion-input ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label >Confirmar contraseña</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-        <br>
-        <ion-button class="cc" href="/tabs/login">Registrarse
-        </ion-button>
-      </form>
-    </ion-card-content>
-  </ion-card>
+  <div class="loginheader"> 
+    <img src="../assets/icon/icon.png" alt="iconlogo">
+  </div>
+  <div class="regicontent">
+    <div class="title">
+      <ion-label>
+        <h2> Crear Cuenta</h2>
+      </ion-label>
+    </div>
+    <div class="regindatos">
+      <ion-item>
+        <ion-input class="custom" label="Nombres" label-placement="floating" fill="outline"
+          placeholder="Ingrese sus nombres"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="custom" label="Apellidos" label-placement="floating" fill="outline"
+          placeholder="Ingrese sus apellidos"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="custom" label="Número de teléfono" label-placement="floating" fill="outline"
+          placeholder="Ingrese su número de teléfono"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="custom" label="Correo electrónico" label-placement="floating" fill="outline"
+          placeholder="Ingrese su correo electrónico"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="custom" label="Contraseña" label-placement="floating" fill="outline"
+          placeholder="Ingrese su contraseña"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="custom" label="Dirección" label-placement="floating" fill="outline"
+          placeholder="Ingrese su dirección"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ion-button class="btning" href="" type="button"> Crear Cuenta </ion-button>
+
+    <ion-button class="btnyacrear" fill="clear" href="/login" type="button">Ya tengo una cuenta</ion-button>
+  </div>
+  
 </ion-content>
+
+<ion-footer>
+  <div class="regifooter"></div>
+</ion-footer>
