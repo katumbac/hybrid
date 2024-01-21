@@ -1,0 +1,98 @@
+[
+    {
+        "product_id": "1",
+        "title": "Fuente de Poder",
+        "price": "50",
+        "use": "Usado",
+        "type": "PC",
+        "img": "repPC.jpg",
+        "description": "Fuente en buen estado poco tiempo de uso 100/100",
+        "place": "Guayaquil",
+        "direction": "Av Malecon",
+        "phone": "956236789"
+    },
+    {
+        "product_id": "2",
+        "title": "Cargador HP",
+        "price": "16",
+        "use": "Nuevo",
+        "type": "Laptop",
+        "img": "repLaptop.jpg",
+        "description": "Cargador 100/100 19.5V 6.15V 4.5 x 3.0mm",
+        "place": "Guayaquil",
+        "direction": "24ava y portete",
+        "phone": "950000781"
+    },
+    {
+        "product_id": "3 ;49;Nuevo;Laptop;;;Quito;;",
+        "title": "BateriaHP HT03XL",
+        "price": "49",
+        "use": "Nuevo",
+        "type": "Laptop",
+        "img": "bateriaHPht03xl.png",
+        "description": "Tipo de batería Li-ion. Voltaje 11.4 V  Capacidad 41.04 Wh",
+        "place": "Quito",
+        "direction": "Garcia Moreno",
+        "phone": "950000789"
+    },
+    {
+        "product_id": "4",
+        "title": "Sensor Chevrolet",
+        "price": "50",
+        "use": "Usado",
+        "type": "Auto",
+        "img": "sensorchevrolet50.png",
+        "description": "Origen korea Carrera de motor 4 tiempos",
+        "place": "Garcia Moreno",
+        "direction": "24ava y portete",
+        "phone": "958364789"
+    },
+    {
+        "product_id": "5",
+        "title": "Portafusil",
+        "price": "6",
+        "use": "Usado",
+        "type": "Auto",
+        "img": "portafusil6.png",
+        "description": "CAJA PORTA FUSIBLES MOTOR DE HYUNDAI ELANTRA ESTADO 9/10",
+        "place": "Quito",
+        "direction": "Garcia Moreno",
+        "phone": "985264179"
+    },
+    {
+        "product_id": "6",
+        "title": "Lector CD/DVD",
+        "price": "30",
+        "use": "Nuevo",
+        "type": "PC",
+        "img": "lectorCD30.png",
+        "description": "Es lector de CD y DVD Es quemador de CD/DVD (DVD WRITER) Plug and Play solo conecta al USB y disfrute Color del producto Negro",
+        "place": "Guayaquil",
+        "direction": "Bahia Local 43",
+        "phone": "950000781"
+    },
+    {
+        "product_id": "7",
+        "title": "Mainboard",
+        "price": "88",
+        "use": "Nuevo",
+        "type": "PC",
+        "img": "mainboard88.png",
+        "description": "Dell Inspiron 7368 7569 Laptop Motherboard con procesador integrado Intel i7-6560U 2.2GHz CPU 77G1M",
+        "place": "Guayaquil",
+        "direction": "Urdesa",
+        "phone": "950000789"
+    }, 
+    {
+        "product_id": "8",
+        "title": "Valvula Vvti",
+        "price": "100",
+        "use": "Nuevo",
+        "type": "Auto",
+        "img": "repAuto.png",
+        "description": "Origen JAPAN tipo de cabeza de cilindro DOHC",
+        "place": "Guayaquil",
+        "direction": "Kenney Norte",
+        "phone": "95000078"
+    }
+]

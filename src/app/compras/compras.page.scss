@@ -1,0 +1,35 @@
+.headt {
+    height: 60px;
+    display: grid;
+    column-gap: 1rem;
+    grid-template-areas: "A B B B B B"
+}
+
+.omenu {
+    grid-area: A;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.serbar{
+    grid-area: B;
+}
+
+
+#title {
+    font-family: 'Arial Narrow Bold', sans-serif
+}
+
+.icon-add{
+    background: #389403;
+    border-radius: 100%;
+    color: white;
+    margin-right: 10px !important;
+}
+
+.icon-remove{
+    background: #cc3712;
+    border-radius: 100%;
+    color: white;
+}

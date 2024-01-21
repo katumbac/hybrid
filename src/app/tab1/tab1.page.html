@@ -10,95 +10,75 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button shape="round" class="all">Todo</ion-button>
-  <ion-button shape="round" class="cat">PC's</ion-button>
-  <ion-button shape="round" class="cat">Laptop</ion-button>
-  <ion-button shape="round" class="cat">Autos</ion-button>
+  <div id="options">
+    <ion-button (click)="btnSeleccion('Todo')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Todo'}" shape="round">Todo</ion-button>
+    <ion-button (click)="btnSeleccion('PC')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'PC'}" shape="round">PC's</ion-button>
+    <ion-button (click)="btnSeleccion('Laptop')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Laptop'}" shape="round">Laptop</ion-button>
+    <ion-button (click)="btnSeleccion('Auto')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Auto'}" shape="round">Autos</ion-button>
+  </div>
+
+  <div id="dvend">
+    <ion-button shape="round" color="success" (click)="mostCard()">¿Quieres vender tu producto? Haz click</ion-button>
+  </div>
+
+  <ion-card *ngIf="mostrarCard">
+    <ion-card-header>
+      <ion-card-title>Vende tu producto</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-text-center">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <ion-list>
+          <ion-item>
+            <ion-input formControlName="title" placeholder="Ingresa nombre de tu producto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="price" placeholder="Ingresa el precio (solo número)"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="use" placeholder="Escriba Nuevo o Usado"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="type" placeholder="Escriba Tipo: PC, Laptop, Usado"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="description" placeholder="Descripción del producto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="place" placeholder="Ciudad"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="direction" placeholder="Dirección para la venta"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="phone" placeholder="Telefono de contacto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="phone" placeholder="Imagen del producto"></ion-input>
+          </ion-item>
+        </ion-list>
+        <div id="dvend">
+        <ion-button type="submit" shape="round" color="success">Publicar producto</ion-button>
+        <ion-button type="submit" shape="round" color="danger" (click)="mostCard()">Cerrar</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
 
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col size="6" *ngFor="let datum of filteredData">
         <div class="product-image">
-          <ion-img src="assets/products/repPC.jpg" alt="product 1"></ion-img>
+          <ion-img src="assets/products/{{datum.img}}"></ion-img>
         </div>
         <div class="content-info">
-          <p class="product-title" id="title">Fuente de Poder</p>
-          <p class="product-price" id="price"> $50 </p>
-          <p class="product-use" id="use">Producto Usado</p>
-          <p class="product-type" id="type">Auto</p>
-        </div>
-
-      </ion-col>
-
-      <ion-col>
-        <div class="product-image">
-          <ion-img src="assets/products/repLaptop.jpg" alt="product 1"></ion-img>
-        </div>
-        <div class="content-info">
-          <p class="product-title" id="title">Cargador HP </p>
-          <p class="product-price" id="price"> $16 </p>
-          <p class="product-use" id="use">Producto Nuevo</p>
-          <p class="product-type" id="type">Laptop</p>
+          <p class="product-title" id="title">{{datum.title}}</p>
+          <p class="product-price" id="price"> ${{datum.price}}</p>
+          <p class="product-use" id="use"> Producto {{datum.use}}</p>
+          <p class="product-type" id="type"> {{datum.type}}</p>
         </div>
       </ion-col>
-
     </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div class="product-image">
-          <ion-img src="assets/products/repPC.jpg" alt="product 1"></ion-img>
-        </div>
-        <div class="content-info">
-          <p class="product-title" id="title">Fuente de Poder</p>
-          <p class="product-price" id="price"> $50 </p>
-          <p class="product-use" id="use">Producto Usado</p>
-          <p class="product-type" id="type">Auto</p>
-        </div>
-
-      </ion-col>
-
-      <ion-col>
-        <div class="product-image">
-          <ion-img src="assets/products/repLaptop.jpg" alt="product 1"></ion-img>
-        </div>
-        <div class="content-info">
-          <p class="product-title" id="title">Cargador HP </p>
-          <p class="product-price" id="price"> $16 </p>
-          <p class="product-use" id="use">Producto Nuevo</p>
-          <p class="product-type" id="type">Laptop</p>
-        </div>
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div class="product-image">
-          <ion-img src="assets/products/repPC.jpg" alt="product 1"></ion-img>
-        </div>
-        <div class="content-info">
-          <p class="product-title" id="title">Fuente de Poder</p>
-          <p class="product-price" id="price"> $50 </p>
-          <p class="product-use" id="use">Producto Usado</p>
-          <p class="product-type" id="type">Auto</p>
-        </div>
-
-      </ion-col>
-
-      <ion-col>
-        <div class="product-image">
-          <ion-img src="assets/products/repLaptop.jpg" alt="product 1"></ion-img>
-        </div>
-        <div class="content-info">
-          <p class="product-title" id="title">Cargador HP </p>
-          <p class="product-price" id="price"> $16 </p>
-          <p class="product-use" id="use">Producto Nuevo</p>
-          <p class="product-type" id="type">Laptop</p>
-        </div>
-      </ion-col>
-
-    </ion-row>
-
   </ion-grid>
 </ion-content>
