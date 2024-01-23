@@ -5,11 +5,16 @@
     grid-template-areas: "A A B B B B"
 }
 
+
 .omenu {
     grid-area: A;
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+.btnmenu{
+    --color:#003547;
 }
 
 .serbar {

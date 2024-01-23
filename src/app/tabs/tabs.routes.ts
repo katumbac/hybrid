@@ -11,6 +11,10 @@ export const routes: Routes = [
         loadComponent: () => import('../login/login.page').then( m => m.LoginPage)
       },
       {
+        path: 'registro',
+        loadComponent: () => import('../registro/registro.page').then( m => m.RegistroPage)
+      },
+      {
         path: 'compras',
         loadComponent: () => 
           import('../compras/compras.page').then( m => m.ComprasPage)
@@ -21,7 +25,7 @@ export const routes: Routes = [
           import('../tab1/tab1.page').then((m) => m.Tab1Page),
       },
       {
-        path: 'tab2',
+        path: 'tab2/:product_id',
         loadComponent: () =>
           import('../tab2/tab2.page').then((m) => m.Tab2Page),
       },
@@ -32,19 +36,15 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'tab1',
+        redirectTo: 'login',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-        loadComponent: () => import('../login/login.page').then( m => m.LoginPage)
+    redirectTo: 'tabs/login',
+    pathMatch: 'full',
   },
-  {
-    path: 'registro',
-    loadComponent: () => import('../registro/registro.page').then( m => m.RegistroPage)
-  },
-
-
 ];
+

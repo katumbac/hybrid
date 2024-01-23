@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { map } from 'rxjs/operators';
 //Importación del HttpClient
 import { HttpClient } from '@angular/common/http';
 
@@ -23,4 +23,7 @@ export class RepuestosserviceService {
   postResponse(data: any) {
     return this.http.post(this.URL, data);
   }
+
+  
+
 }

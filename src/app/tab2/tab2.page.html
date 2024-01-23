@@ -1,59 +1,66 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="headt">
   <div class="omenu">
-    <ion-buttons slot="start">
-      <ion-button href="/tabs/tab1">
-        <ion-icon slot="icon-only" color="warning" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title> Compras/Artículo </ion-title>
-  </div>
     
+    <ion-buttons slot="start" [routerLink]="['/tabs/tab1']">
+      <ion-icon slot="icon-only" color="warning" name="arrow-back"></ion-icon>
+    </ion-buttons>
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <ion-grid>
-    <!--- boton regresar -->
+<ion-grid>
+
     <ion-row>
 
     </ion-row>
-    <!--- imagen-->
+
     <ion-row>
 
-      <div class="product-image">
-        <ion-img src="assets/products/repLaptop.jpg" alt="product 1"></ion-img>
-      </div>
-
-      <div class="content-info">
-        <p class="product-title" id="title">Cargador HP </p>
-        <p class="product-price" id="price"> $16 </p>
-        <p class="product-use" id="use">Producto Nuevo</p>
-        <p class="product-type" id="type">Laptop</p>
-      </div>
-    </ion-row>
-
-    <!--- info-->
-    <ion-row>
-      <ion-segment color="warning" value="warning">
-        <ion-segment-button value="warning">
-          <ion-label>Información</ion-label>
-        </ion-segment-button>
-
-        <ion-segment-button value="segment">
-          <ion-label>Contacto</ion-label>
-        </ion-segment-button>
-      </ion-segment>
       
+
+      <div class="content-info" *ngIf="productDetails">
+        <div class="product-image">
+          <ion-img class="imgp" src="assets/products/{{productDetails.img}}" alt="{{productDetails.product_id}}"></ion-img>
+        </div>
+        <p class="product-title" id="title">{{ productDetails.title }}</p>
+        <p class="product-price" id="price"> $ {{productDetails.price}}  </p>
+        <p class="product-use" id="use"> Producto {{productDetails.use}} </p>
+        <p class="product-type" id="type">{{productDetails.type }}</p>
+      </div>
+    </ion-row>
+
+
+    <ion-row>
+      <div class="infocard" *ngIf="productDetails">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Información</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <p class="description"> {{productDetails.description}}</p>
+        </ion-card-content>
+
+        <ion-card-header>
+          <ion-card-title>Contacto</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p class="description"> <b>Lugar:</b> {{productDetails.place}}</p>
+          <p class="description"> <b>Dirección:</b> {{productDetails.direction}} </p>
+          <p class="description"> <b>Teléfono:</b> +593 {{productDetails.phone}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
       
     </ion-row>
 
-    <!--- boton de comprar -->
+
     <ion-row>
-      <ion-button class="comp">
+      <ion-button class="comp" (click)="adquirirProducto()">
         Adquirir
         <ion-icon slot="start" name="cart-outline"></ion-icon>
       </ion-button>
-
     </ion-row>
 
   </ion-grid>

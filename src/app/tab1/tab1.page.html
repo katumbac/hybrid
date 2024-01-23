@@ -1,11 +1,11 @@
 <ion-header [translucent]="true" class="headt">
   <div class="omenu">
     <ion-buttons slot="start">
-      <ion-menu-button name="menu"></ion-menu-button>
+      <ion-menu-button name="menu" class="btnmenu"></ion-menu-button>
     </ion-buttons>
   </div>
   <div class="serbar">
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Nombre del producto" (ionInput)="onSearchInput($event)"></ion-searchbar>
   </div>
 </ion-header>
 
@@ -65,10 +65,9 @@
     </ion-card-content>
   </ion-card>
 
-
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let datum of filteredData">
+      <ion-col size="6" *ngFor="let datum of filteredData" [routerLink]="['/tabs/tab2',datum.product_id]">
         <div class="product-image">
           <ion-img src="assets/products/{{datum.img}}"></ion-img>
         </div>

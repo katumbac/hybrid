@@ -5,6 +5,11 @@
     grid-template-areas: "A B B B B B"
 }
 
+.tt{
+    color: #003547;
+    font-weight: bold;
+}
+
 .omenu {
     grid-area: A;
     display: flex;
@@ -12,10 +17,17 @@
     text-align: center;
 }
 
-.serbar{
-    grid-area: B;
+.btnmenu{
+    --color:#003547;
 }
 
+.product-image{
+    height: 100px;
+    width: 120px;
+    border-radius: 12%;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 #title {
     font-family: 'Arial Narrow Bold', sans-serif

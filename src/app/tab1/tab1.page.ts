@@ -1,21 +1,14 @@
-import { Component } from '@angular/core';
-//Importación del método http
-import { HttpClientModule } from '@angular/common/http';
-// Importe el módulo con la directiva @ngFor
-import { CommonModule } from '@angular/common'
-//Importación de la interfaz
-import { Repuestosec } from '../interfaces/repuestosec';
-//Importación del servicio
-import { RepuestosserviceService } from '../services/repuestosservice.service';
-//Importación de los constructores del formulario
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import {
-  IonHeader, IonContent, IonButtons, IonMenuButton, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonSearchbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent,
-  IonInput, IonButton,
-  IonLabel, IonList, IonItem
-} from '@ionic/angular/standalone';
-
+import { Component} from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; //Importación del método http
+import { CommonModule } from '@angular/common' // Importe el módulo con la directiva @ngFor
+import { Repuestosec } from '../interfaces/repuestosec'; //Importación de la interfaz
+import { RepuestosserviceService } from '../services/repuestosservice.service'; //Importación del servicio
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms'; //Importación de los constructores del formulario
+import { IonHeader, IonContent, IonButtons, IonMenuButton, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonSearchbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonInput, IonButton, IonLabel, IonList, IonItem } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { addIcons } from 'ionicons';
+import { searchOutline } from 'ionicons/icons';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -23,22 +16,18 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   styleUrls: ['tab1.page.scss'],
   standalone: true,
   imports: [HttpClientModule, ReactiveFormsModule, CommonModule, ExploreContainerComponent, IonButtons, IonMenuButton, IonSearchbar, IonContent,
-
-    CommonModule,
-    IonLabel, IonList, IonItem,
-    IonInput, IonButton, IonHeader,
-    IonGrid, IonCol, IonRow, IonImg,
-    IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent,],
+ IonIcon, IonLabel, IonList, IonItem, IonInput, IonButton, IonHeader, IonGrid, IonCol, IonRow, IonImg, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent,RouterModule],
   providers: [RepuestosserviceService],
 })
 export class Tab1Page {
-  tiposDisponibles: string[] = ['Todo', 'PC', 'Laptop', 'Auto'];
-  mostrarCard =false;
-  btnSeleccionado: string = 'Todo';
 
-  //Atributo con el tipo de dato de la interfaz
+
+  tiposDisponibles: string[] = ['Todo', 'PC', 'Laptop', 'Auto'];
+  mostrarCard = false;
+  btnSeleccionado: string = 'Todo';
   public data: Repuestosec[] = [];
   public filteredData: Repuestosec[] = [];
+  filtersearch: string = '';
 
   checkoutForm = this.formBuilder.group({
     title: '',
@@ -51,7 +40,6 @@ export class Tab1Page {
     direction: '',
     phone: '',
   });
-  
 
   constructor(
     private dataProvider: RepuestosserviceService,
@@ -60,6 +48,7 @@ export class Tab1Page {
 
   ngOnInit() {
     this.loadData();
+    addIcons({ searchOutline });
   }
 
   loadData() {
@@ -73,16 +62,33 @@ export class Tab1Page {
 
   btnSeleccion(opcion: string) {
     this.btnSeleccionado = opcion;
-    this.applyFilter(this.btnSeleccionado);
+    this.applyFilter();
   }
 
 
-  applyFilter(opcion : string){
-    if(opcion == 'Todo'){
-      this.loadData();
-    }else{
-      this.filteredData = this.data.filter(item => item.type === opcion);
+  applyFilter() {
+    if (this.btnSeleccionado == 'Todo') {
+      //this.loadData();
+      this.filteredData = this.data.filter(item => this.buscarEnDato(item));
+
+    } else {
+      this.filteredData = this.data.filter(item => item.type === this.btnSeleccionado && this.buscarEnDato(item));   
     }
+
+  }
+
+  buscarEnDato(dato: Repuestosec): boolean {
+    const inputBusqueda = this.filtersearch.toLowerCase();
+
+    return (
+      dato.title.toLowerCase().includes(inputBusqueda) ||
+      dato.type.toLowerCase().includes(inputBusqueda)
+    );
+  }
+
+  onSearchInput(event: any) {
+    this.filtersearch = event.target.value;
+    this.applyFilter();
   }
 
   mostCard() {
@@ -112,6 +118,10 @@ export class Tab1Page {
       this.loadData()
     })
   }
+
+
+  
+
 
 
 }

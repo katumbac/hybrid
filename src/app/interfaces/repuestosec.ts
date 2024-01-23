@@ -10,3 +10,4 @@ export interface Repuestosec {
     direction:  any;
     phone:  any;
 }
+

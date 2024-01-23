@@ -11,24 +11,24 @@
       </div>
         <ion-list class="optionmenu">
         <ion-menu-toggle>
-          <ion-item href="/tabs/tab1"> Inicio
+          <ion-item [routerLink]="['/tabs/tab1']"> Inicio
             <ion-icon slot="start" name="home"></ion-icon>
           </ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle>
-          <ion-item href="/tabs/compras"> Compras
+          <ion-item [routerLink]="['/tabs/compras']"> Compras
             <ion-icon slot="start" name="cart-outline"></ion-icon>
           </ion-item>
         </ion-menu-toggle>
 
         <ion-menu-toggle>
-          <ion-item href="/tabs/tab3"> Acerca De
+          <ion-item [routerLink]="['/tabs/tab3']"> Acerca De
             <ion-icon slot="start" name="person-circle-outline"></ion-icon>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item href="/login"> Cerrar Sesion
+          <ion-item [routerLink]="['/login']"> Cerrar Sesion
             <ion-icon slot="start" name="exit-outline"></ion-icon>
           </ion-item>
         </ion-menu-toggle>

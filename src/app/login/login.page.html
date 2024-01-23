@@ -18,8 +18,8 @@
           placeholder="Ingrese su contraseña"></ion-input>
       </ion-item>
     </div>
-    <ion-button class="btncrear" fill="clear" href="/registro" type="button">Crear Cuenta</ion-button>
-    <ion-button class="btning" href="/tabs/tab1" type="button"> Iniciar Sesión </ion-button>
+    <ion-button class="btncrear" fill="clear" [routerLink]="['/tabs/registro']" type="button">Crear Cuenta</ion-button>
+    <ion-button class="btning" [routerLink]="['/tabs/tab1']" type="button"> Iniciar Sesión </ion-button>
 
   </div>
 

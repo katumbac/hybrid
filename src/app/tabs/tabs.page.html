@@ -1,14 +1,14 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1" href="/tabs/tab1">
+    <ion-tab-button tab="tab1" [routerLink]="['/tabs/tab1']">
       <ion-icon aria-hidden="true" name="home"></ion-icon> 
     </ion-tab-button>
 
-    <ion-tab-button tab="compras" href="/tabs/compras">
+    <ion-tab-button tab="compras" [routerLink]="['/tabs/compras']">
       <ion-icon aria-hidden="true" name="cart-outline"></ion-icon>  
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3" href="/acerca/acerca.page">
+    <ion-tab-button tab="tab3" [routerLink]="['/tabs/tab3']">
       <ion-icon aria-hidden="true" name="person-circle-outline"></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>

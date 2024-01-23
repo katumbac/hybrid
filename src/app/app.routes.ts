@@ -7,16 +7,16 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+    loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
   },
   {
     path: 'registro',
-    loadComponent: () => import('./registro/registro.page').then( m => m.RegistroPage)
+    loadComponent: () => import('./registro/registro.page').then(m => m.RegistroPage)
   },
   {
     path: 'compras',
-    loadComponent: () => import('./compras/compras.page').then( m => m.ComprasPage)
+    loadComponent: () => import('./compras/compras.page').then(m => m.ComprasPage)
   },
 
-
 ];
+
