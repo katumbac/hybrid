@@ -9,17 +9,20 @@
       </ion-label>
     </div>
     <div class="logindatos">
-      <ion-item>
-        <ion-input class="custom" label="Correo" label-placement="floating" fill="outline"
-          placeholder="Ingrese su correo"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="custom" label="Contraseña" label-placement="floating" fill="outline"
-          placeholder="Ingrese su contraseña"></ion-input>
-      </ion-item>
+      <form [formGroup]="checkoutForm" >
+        <ion-item>
+          <ion-input formControlName="correo" class="custom" label="Correo electrónico" label-placement="floating"
+            fill="outline" placeholder="Ingrese su correo electrónico"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="contrasenia" class="custom" label="Contraseña" label-placement="floating"
+            fill="outline" placeholder="Ingrese su contraseña"></ion-input>
+        </ion-item>       
+      </form>
     </div>
-    <ion-button class="btncrear" fill="clear" [routerLink]="['/tabs/registro']" type="button">Crear Cuenta</ion-button>
-    <ion-button class="btning" [routerLink]="['/tabs/tab1']" type="button"> Iniciar Sesión </ion-button>
+    <div *ngIf="message" class="success-message" id="msg">{{ message }}</div>
+    <ion-button class="btncrear" fill="clear" [routerLink]="['/registro']" type="button">Crear Cuenta</ion-button>
+    <ion-button class="btning" (click)="login()" type="button"> Iniciar Sesión </ion-button>
 
   </div>
 

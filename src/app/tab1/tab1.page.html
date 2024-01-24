@@ -11,10 +11,14 @@
 
 <ion-content [fullscreen]="true">
   <div id="options">
-    <ion-button (click)="btnSeleccion('Todo')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Todo'}" shape="round">Todo</ion-button>
-    <ion-button (click)="btnSeleccion('PC')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'PC'}" shape="round">PC's</ion-button>
-    <ion-button (click)="btnSeleccion('Laptop')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Laptop'}" shape="round">Laptop</ion-button>
-    <ion-button (click)="btnSeleccion('Auto')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Auto'}" shape="round">Autos</ion-button>
+    <ion-button (click)="btnSeleccion('Todo')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Todo'}"
+      shape="round">Todo</ion-button>
+    <ion-button (click)="btnSeleccion('PC')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'PC'}"
+      shape="round">PC's</ion-button>
+    <ion-button (click)="btnSeleccion('Laptop')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Laptop'}"
+      shape="round">Laptop</ion-button>
+    <ion-button (click)="btnSeleccion('Auto')" [ngClass]="{'boton-seleccionado': btnSeleccionado === 'Auto'}"
+      shape="round">Autos</ion-button>
   </div>
 
   <div id="dvend">
@@ -39,7 +43,7 @@
             <ion-input formControlName="use" placeholder="Escriba Nuevo o Usado"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input formControlName="type" placeholder="Escriba Tipo: PC, Laptop, Usado"></ion-input>
+            <ion-input formControlName="type" placeholder="Escriba Tipo: PC, Laptop, Auto"></ion-input>
           </ion-item>
           <ion-item>
             <ion-input formControlName="description" placeholder="Descripción del producto"></ion-input>
@@ -54,18 +58,69 @@
             <ion-input formControlName="phone" placeholder="Telefono de contacto"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input formControlName="phone" placeholder="Imagen del producto"></ion-input>
+            <ion-label>Sube imagen del producto</ion-label>
+            <!-- Muestra los elementos -->
+            <ion-grid>
+              <ion-row>
+                <ion-col size="6" *ngIf="photoService.photos.length > 0">
+                  <ion-img [src]="photoService.photos[0].webviewPath"></ion-img>
+                  <p>filepath: {{ photoService.photos[0].filepath }}</p>
+                  <ion-input formControlName="img" placeholder="Imagen del producto"
+                    [value]="photoService.photos[0].webviewPath"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-button (click)="deletePhoto()">Borra foto</ion-button>
+                <!--<ion-button (click)="deleteAllPhoto()">Borra todas las fotos</ion-button>-->
+                <ion-fab-button (click)="addPhotoToGallery()">
+                  <ion-icon name="camera"></ion-icon>
+                </ion-fab-button>
+              </ion-row>
+            </ion-grid>
+
+
           </ion-item>
         </ion-list>
+
+        <!-- Botones publicar producto y cerrar -->
         <div id="dvend">
-        <ion-button type="submit" shape="round" color="success">Publicar producto</ion-button>
-        <ion-button type="submit" shape="round" color="danger" (click)="mostCard()">Cerrar</ion-button>
+          <ion-button type="submit" shape="round" color="success">Publicar producto</ion-button>
+          <ion-button type="submit" shape="round" color="danger" (click)="mostCard()">Cerrar</ion-button>
         </div>
       </form>
     </ion-card-content>
   </ion-card>
 
   <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let datum of filteredData" [routerLink]="['/tabs/tab2',datum.product_id]">
+        <div class="product-image">
+          <ion-img src="assets/products/{{datum.img}}" [alt]="datum.product_id"></ion-img>
+        </div>
+        <div class="content-info">
+          <p class="product-title" id="title">{{datum.title}}</p>
+          <p class="product-price" id="price"> ${{datum.price}}</p>
+          <p class="product-use" id="use"> Producto {{datum.use}}</p>
+          <p class="product-type" id="type"> {{datum.type}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" *ngFor="let datum of filteredDatap" [routerLink]="['/tabs/tab2',datum.product_id]">
+        <div class="product-image">
+          <ion-img [src]="getPhotoPath(datum.img)" [alt]="datum.product_id"></ion-img>
+        </div>
+        <div class="content-info">
+          <p class="product-title" id="title">{{datum.title}}</p>
+          <p class="product-price" id="price"> ${{datum.price}}</p>
+          <p class="product-use" id="use"> Producto {{datum.use}}</p>
+          <p class="product-type" id="type"> {{datum.type}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let datum of filteredData" [routerLink]="['/tabs/tab2',datum.product_id]">
         <div class="product-image">
@@ -79,5 +134,5 @@
         </div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>-->
 </ion-content>

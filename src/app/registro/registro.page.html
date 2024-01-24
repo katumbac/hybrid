@@ -1,45 +1,55 @@
-<ion-content>
-  <div class="loginheader"> 
-    <img src="../assets/icon/icon.png" alt="iconlogo">
-  </div>
-  <div class="regicontent">
-    <div class="title">
-      <ion-label>
-        <h2> Crear Cuenta</h2>
-      </ion-label>
-    </div>
-    <div class="regindatos">
-      <ion-item>
-        <ion-input class="custom" label="Nombres" label-placement="floating" fill="outline"
-          placeholder="Ingrese sus nombres"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="custom" label="Apellidos" label-placement="floating" fill="outline"
-          placeholder="Ingrese sus apellidos"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="custom" label="Número de teléfono" label-placement="floating" fill="outline"
-          placeholder="Ingrese su número de teléfono"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="custom" label="Correo electrónico" label-placement="floating" fill="outline"
-          placeholder="Ingrese su correo electrónico"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="custom" label="Contraseña" label-placement="floating" fill="outline"
-          placeholder="Ingrese su contraseña"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="custom" label="Dirección" label-placement="floating" fill="outline"
-          placeholder="Ingrese su dirección"></ion-input>
-      </ion-item>
-    </div>
-    
-    <ion-button class="btning" [routerLink]="['xxxx']" type="button"> Crear Cuenta </ion-button>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <div class="loginheader">
+        <img src="../assets/icon/icon.png" alt="iconlogo">
+      </div>
+      <div class="title">
+        <ion-label>
+          <h2> Crear Cuenta</h2>
+        </ion-label>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="checkoutForm" >
 
-    <ion-button class="btnyacrear" fill="clear" [routerLink]="['/tabs/login']" type="button">Ya tengo una cuenta</ion-button>
-  </div>
-  
+        <ion-item>
+          <ion-input formControlName="nombres" class="custom" label="Nombres" label-placement="floating" fill="outline"
+            placeholder="Ingrese sus nombres"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="apellidos" class="custom" label="Apellidos" label-placement="floating"
+            fill="outline" placeholder="Ingrese sus apellidos"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="phone" class="custom" label="Número de teléfono" label-placement="floating"
+            fill="outline" placeholder="Ingrese su número de teléfono"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="correo" class="custom" label="Correo electrónico" label-placement="floating"
+            fill="outline" placeholder="Ingrese su correo electrónico"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="contrasenia" class="custom" label="Contraseña" label-placement="floating"
+            fill="outline" placeholder="Ingrese su contraseña"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="direccion" class="custom" label="Dirección" label-placement="floating"
+            fill="outline" placeholder="Ingrese su dirección"></ion-input>
+        </ion-item>
+        
+      </form>
+
+      <div *ngIf="message" class="success-message">{{ message }}</div>
+
+      <ion-button class="btning" type="button" (click)="onSubmit()"> Crear Cuenta </ion-button>
+
+      <ion-button class="btnyacrear" fill="clear" [routerLink]="['/login']" type="button">Ya tengo una
+        cuenta</ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
 
 <ion-footer>

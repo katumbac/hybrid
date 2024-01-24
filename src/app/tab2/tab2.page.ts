@@ -20,7 +20,9 @@ import { RepuestosserviceService } from '../services/repuestosservice.service';
 export class Tab2Page {
 
   public data: Repuestosec[] = [];
+  public datap: Repuestosec[] = [];
   public filteredData: Repuestosec[] = [];
+  public filteredDatap: any[] = [];
   public productDetails: Repuestosec | undefined;
 
   constructor(
@@ -38,6 +40,26 @@ export class Tab2Page {
     this.activatedRoute.paramMap.subscribe(product => {
       const p_id = product.get('product_id');
       console.log(p_id);
+
+      const foundProductp = this.filteredDatap.find(item => item.product_id === p_id);
+      if (foundProductp) {
+        const productDetails = {
+          product_id: foundProductp.product_id,
+          title: foundProductp.title,
+          price: foundProductp.price,
+          use: foundProductp.use,
+          type: foundProductp.type,
+          img: foundProductp.img,
+          description: foundProductp.description,
+          place: foundProductp.place,
+          direction: foundProductp.direction,
+          phone: foundProductp.phone
+        };
+        console.log('Product Details:', productDetails);
+        this.productDetails = productDetails;
+      } else {
+        console.log('Producto no encontrado');
+      }
 
       const foundProduct = this.filteredData.find(item => item.product_id === p_id);
       if (foundProduct) {
@@ -71,6 +93,12 @@ export class Tab2Page {
         
       }
     });
+    this.dataProvider.getResponse_p().subscribe((response) => {
+      if (response != null) {
+        this.data = Object.values(response) as Repuestosec[];
+        this.filteredDatap = this.data;
+      }
+    })
   }
 
   adquirirProducto() {

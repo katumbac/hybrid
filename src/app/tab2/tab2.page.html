@@ -1,30 +1,19 @@
-<ion-header [translucent]="true" class="headt">
+<ion-content [fullscreen]="true">
   <div class="omenu">
-    
     <ion-buttons slot="start" [routerLink]="['/tabs/tab1']">
       <ion-icon slot="icon-only" color="warning" name="arrow-back"></ion-icon>
     </ion-buttons>
   </div>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-
-<ion-grid>
+  <ion-grid>
 
     <ion-row>
-
-    </ion-row>
-
-    <ion-row>
-
-      
-
       <div class="content-info" *ngIf="productDetails">
         <div class="product-image">
-          <ion-img class="imgp" src="assets/products/{{productDetails.img}}" alt="{{productDetails.product_id}}"></ion-img>
+          <ion-img class="imgp" src="assets/products/{{productDetails.img}}"
+            alt="{{productDetails.product_id}}"></ion-img>
         </div>
         <p class="product-title" id="title">{{ productDetails.title }}</p>
-        <p class="product-price" id="price"> $ {{productDetails.price}}  </p>
+        <p class="product-price" id="price"> $ {{productDetails.price}} </p>
         <p class="product-use" id="use"> Producto {{productDetails.use}} </p>
         <p class="product-type" id="type">{{productDetails.type }}</p>
       </div>
@@ -33,26 +22,26 @@
 
     <ion-row>
       <div class="infocard" *ngIf="productDetails">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Información</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <p class="description"> {{productDetails.description}}</p>
-        </ion-card-content>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Información</ion-card-title>
+          </ion-card-header>
 
-        <ion-card-header>
-          <ion-card-title>Contacto</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p class="description"> <b>Lugar:</b> {{productDetails.place}}</p>
-          <p class="description"> <b>Dirección:</b> {{productDetails.direction}} </p>
-          <p class="description"> <b>Teléfono:</b> +593 {{productDetails.phone}}</p>
-        </ion-card-content>
-      </ion-card>
-    </div>
-      
+          <ion-card-content>
+            <p class="description"> {{productDetails.description}}</p>
+          </ion-card-content>
+
+          <ion-card-header>
+            <ion-card-title>Contacto</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="description"> <b>Lugar:</b> {{productDetails.place}}</p>
+            <p class="description"> <b>Dirección:</b> {{productDetails.direction}} </p>
+            <p class="description"> <b>Teléfono:</b> +593 {{productDetails.phone}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
     </ion-row>
 
 
