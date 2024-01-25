@@ -1,5 +1,7 @@
 {
   "name": "AppRepuestos",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular-standalone"
 }
